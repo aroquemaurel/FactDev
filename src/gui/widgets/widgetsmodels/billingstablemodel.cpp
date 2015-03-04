@@ -10,6 +10,8 @@ Gui::Widgets::WdgModels::BillingsTableModel::~BillingsTableModel()
 
 }
 
+
+
 int Gui::Widgets::WdgModels::BillingsTableModel::rowCount(
         const QModelIndex &) const
 {

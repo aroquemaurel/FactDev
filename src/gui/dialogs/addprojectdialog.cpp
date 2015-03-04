@@ -4,18 +4,29 @@
 namespace Gui {
 namespace Dialogs {
 
-AddProjectDialog::AddProjectDialog(int idProject, int noRowCustomer, QWidget *parent) :
-    QDialog(parent), ui(new Ui::AddProjectDialog)
+AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::AddProjectDialog)
 {
     ui->setupUi(this);
 
-    if(noRowCustomer != 0) {
-        ui->wdgSearch->selectCustomer(noRowCustomer);
+    if(id != 0) {
+        _project = Project(id);
+        setWindowTitle("Modifier le projet "+_project.getName());
+    } else {
+        _project = Project();
     }
+    emit checkFields();
+}
+
+AddProjectDialog::AddProjectDialog(int noRowCustomer, int idProject,
+    QWidget *parent) : QDialog(parent), ui(new Ui::AddProjectDialog)
+{
+    ui->setupUi(this);
+    ui->wdgSearch->selectCustomer(noRowCustomer);
     ui->leNameProject->setFocus();
     if(idProject != 0) {
         _project = Project(idProject);
-        ui->wdgSearch->setIdCustomer(_project.getCustomer()->getId());
         fillFields();
         setWindowTitle("Modifier le projet " + _project.getName());
     } else {
@@ -35,10 +46,7 @@ void AddProjectDialog::accept() {
     _project.setDescription(ui->leDescription->toPlainText());
     _project.setDailyRate(ui->wdgRate->getDailyRate());
     _project.setBeginDate(QDate::currentDate());
-
-    if(_project.getCustomer() == 0) {
-        _project.setCustomer(QSharedPointer<Customer>(new Customer(ui->wdgSearch->getCurrentCustomerId())));
-    }
+    _project.setCustomer(QSharedPointer<Customer>(new Customer(ui->wdgSearch->getCurrentCustomerId())));
 
     _project.commit();
 

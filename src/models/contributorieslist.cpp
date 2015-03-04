@@ -143,6 +143,11 @@ double ContributoriesList::getSumRate()
         }
     }
 
+
+//        for(Contributory c : getContributories(key->first)) {
+//            ret += c.getNbHours() * key->second.getDailyRate();
+//        }
+//    }
     return ret;
 }
 

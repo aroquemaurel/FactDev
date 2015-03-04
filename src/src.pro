@@ -20,7 +20,7 @@ linux-g++ {
 CONFIG += c++11
 
 
-SOURCES += gui/mainwindow/mainwindow.cpp \
+SOURCES += mainwindow.cpp \
         utils/log.cpp\
         # Database files
         database/database.cpp \
@@ -79,12 +79,9 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/delegates/comboboxdelegate.cpp \
     database/ratedatabase.cpp \
     exceptions/fileexception.cpp \
-    utils/hierarchicalsystem.cpp \
-    utils/pointers.cpp \
-    utils/directories.cpp \
-    gui/docks/searchdock.cpp
+    utils/hierarchicalsystem.cpp
 
-HEADERS  += gui/mainwindow/mainwindow.h \
+HEADERS  += mainwindow.h \
         utils/log.h\
         # Database files
         database/database.h \
@@ -100,13 +97,19 @@ HEADERS  += gui/mainwindow/mainwindow.h \
         models/contributory.h \
         database/userdatabase.h \
         models/user.h \
+        gui/dialogs/userdatadialog.h \
         gui/widgets/customercontextualmenu.h \
         models/search.h \
         gui/widgets/popup.h \
+        gui/dialogs/addprojectdialog.h \
         gui/widgets/ratewidget.h \
         database/projectdatabase.h \
+        gui/widgets/comboboxmodelwidget.h \
         utils/string.h \
+        gui/widgets/searchwidget.h \
+        gui/widgets/customerdatawidget.h \
         gui/widgets/projectswidget.h \
+        gui/dialogs/addquotedialog.h \
         gui/widgets/checkfields/checkqlineedit.h \
         gui/widgets/checkfields/checkemail.h \
         gui/widgets/checkfields/checkphone.h \
@@ -118,10 +121,13 @@ HEADERS  += gui/mainwindow/mainwindow.h \
         gui/widgets/checkfields/checkuntilfield.h \
         gui/widgets/checkfields/checkvalidfield.h \
         gui/widgets/checkfields/checkfieldsletters.h \
+        gui/widgets/contributorieswidget.h \
         gui/widgets/widgetsmodels/contributoriestablemodel.h \
+        gui/widgets/delegates/projectcombodelegate.h \
         database/billingdatabase.h \
         database/contributorydatabase.h \
         utils/itemtype.h \
+        gui/dialogs/messagebox.h \
         gui/widgets/checkfields/icheckfield.h \
         libs/qt-mustache/src/mustache.h \
         generator.h \
@@ -146,13 +152,16 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     models/search.h \
     gui/widgets/popup.h \
     gui/dialogs/addprojectdialog.h \
+    gui/widgets/ratewidget.h \
     database/projectdatabase.h \
     gui/dialogs/addcontributorydialog.h \
     gui/widgets/comboboxmodelwidget.h \
     utils/string.h \
     gui/widgets/searchwidget.h \
     gui/widgets/customerdatawidget.h \
+    gui/widgets/projectswidget.h \
     gui/dialogs/addquotedialog.h \
+    gui/widgets/checkfields/checkqlineedit.h \
     gui/widgets/checkfields/checkemail.h \
     gui/widgets/checkfields/checkphone.h \
     gui/widgets/checkfields/checkpostalcode.h \
@@ -178,14 +187,10 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/widgetsmodels/projectstablemodel.h \
     gui/widgets/widgetsmodels/billingstablemodel.h \
     exceptions/fileexception.h \
-    utils/hierarchicalsystem.h \
-    gui/mainwindow/docks/searchdock.h \
-    utils/pointers.h \
-    utils/directories.h \
-    gui/docks/searchdock.h
+    utils/hierarchicalsystem.h
 
 
-FORMS    += gui/mainwindow/mainwindow.ui \
+FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
     gui/dialogs/userdatadialog.ui \
     gui/dialogs/addprojectdialog.ui \
@@ -196,8 +201,7 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/widgets/projectswidget.ui \
     gui/dialogs/addquotedialog.ui \
     gui/widgets/contributorieswidget.ui \
-    gui/dialogs/messagebox.ui \
-    gui/docks/searchdock.ui
+    gui/dialogs/messagebox.ui
 
 RESOURCES += \
     icons.qrc \

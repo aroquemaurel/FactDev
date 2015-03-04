@@ -1,5 +1,9 @@
 #include "contributorieswidget.h"
-
+#include "models/contributory.h"
+#include "gui/widgets/delegates/projectcombodelegate.h"
+#include "gui/widgets/delegates/doublespinboxdelegate.h"
+#include "gui/widgets/delegates/unitcombodelegate.h"
+#include "models/contributorieslist.h"
 #include "ui_contributorieswidget.h"
 
 namespace Gui {

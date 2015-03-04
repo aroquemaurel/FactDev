@@ -75,11 +75,9 @@ double RateDatabase::getRate(const int idBilling, const int idProject) const {
                     14.2);
 
     }
-    if(q.first()) {
-        return value(q, "hourlyRate").toDouble();
-    }
+    q.first();
 
-    return Models::Rate().getHourlyRate();
+    return value(q, "hourlyRate").toDouble();
 }
 
 }

@@ -7,6 +7,9 @@ using namespace Databases;
 namespace Models {
 Billing::Billing()
 {
+    // TODO :
+    // add enum for quote or billing, passed in constructor
+    // If quote, line behind, else getMaxBillingNumber.
     _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
     _toRemoved = false;
 }
@@ -18,6 +21,10 @@ Billing::Billing(int id)
 
 Billing::~Billing()
 {
+//    auto end = _contributories.cend();
+//    for (auto it = _contributories.cbegin(); it != end; ++it) {
+//        it.value().reset;
+//    }
 }
 
 void Billing::commit()
@@ -64,7 +71,7 @@ QVariantHash Billing::getDataMap()
     billing["title"] = _title;
     billing["description"] = _description;
     billing["date"] = _date.toString("dddd d MMMM yyyy");
-
+// TODO daily rate !
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.getCustomer()->getDataMap();
     data["billing"] = billing;//
